@@ -76,27 +76,21 @@ section{padding:7rem 2rem}
 .service-card h3{font-family:var(--heading);font-size:1.15rem;font-weight:600;margin-bottom:.6rem}
 .service-card p{color:var(--gray);font-size:.9rem;line-height:1.65}
 
-/* ═══ STATS ═══ */
-.stats{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);position:relative;overflow:hidden}
-.stats::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(0,119,255,.08),transparent 70%);pointer-events:none}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
-.stat-item h3{font-family:var(--heading);font-size:clamp(2rem,4vw,3.25rem);font-weight:800;color:var(--white);margin-bottom:.35rem}
-.stat-item h3 span{color:var(--blue-light)}
-.stat-item p{color:var(--gray);font-size:.9rem;font-weight:500}
-
-/* ═══ SHOWCASE ═══ */
-.showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
-.showcase-card{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--bg3);border:1px solid rgba(255,255,255,.06);cursor:pointer;group:true}
-.showcase-card .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(8,12,20,.9) 100%);z-index:1;transition:all .4s}
-.showcase-card .pattern{position:absolute;inset:0;opacity:.15;background:
-  repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(0,119,255,.05) 10px,rgba(0,119,255,.05) 11px)}
-.showcase-card .info{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;z-index:2;transform:translateY(8px);opacity:0;transition:all .4s}
-.showcase-card:hover .info{transform:translateY(0);opacity:1}
-.showcase-card:hover .overlay{background:linear-gradient(180deg,transparent 20%,rgba(8,12,20,.95) 100%)}
-.showcase-card .tag{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);margin-bottom:.4rem}
-.showcase-card h3{font-family:var(--heading);font-size:1.1rem;font-weight:600}
-.showcase-card p{color:var(--gray);font-size:.8rem;margin-top:.25rem}
-.showcase-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(0,119,255,.15);border:1px solid rgba(0,119,255,.3);display:flex;align-items:center;justify-content:center;color:var(--blue-light);font-size:1.5rem;z-index:2}
+/* ═══ SHOP ═══ */
+.shop-tabs{display:flex;gap:.75rem;margin:2.5rem 0;flex-wrap:wrap}
+.shop-tab{padding:.5rem 1.25rem;border-radius:100px;font-size:.85rem;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:var(--gray);transition:all .3s}
+.shop-tab:hover,.shop-tab.active{background:rgba(0,119,255,.15);border-color:rgba(0,119,255,.4);color:var(--blue-light)}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.5rem}
+.product-card{background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;transition:all .4s ease;backdrop-filter:blur(12px)}
+.product-card:hover{transform:translateY(-6px);border-color:rgba(0,119,255,.35);box-shadow:0 8px 40px rgba(0,119,255,.15)}
+.product-img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--bg3)}
+.product-body{padding:1.25rem}
+.product-cat{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-light);margin-bottom:.4rem}
+.product-body h3{font-family:var(--heading);font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.product-price{font-family:var(--heading);font-size:1.35rem;font-weight:700;color:var(--blue-light);margin-bottom:1rem}
+.product-price small{font-size:.75rem;font-weight:400;color:var(--gray)}
+.btn-shop{display:inline-flex;align-items:center;gap:.4rem;width:100%;justify-content:center;padding:.7rem 1rem;border-radius:8px;font-size:.85rem;font-weight:600;background:rgba(0,119,255,.12);border:1px solid rgba(0,119,255,.25);color:var(--blue-light);cursor:pointer;transition:all .3s}
+.btn-shop:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
 
 /* ═══ ABOUT ═══ */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem}
@@ -143,14 +137,13 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2rem 2rem}
 @media(max-width:968px){
   .nav-links{display:none}
   .nav-burger{display:flex}
-  .services-grid,.showcase-grid{grid-template-columns:1fr 1fr}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1rem}
+  .services-grid{grid-template-columns:1fr 1fr}
   .about-grid{grid-template-columns:1fr;gap:2rem}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
 }
 @media(max-width:600px){
-  .services-grid,.showcase-grid{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr}
+  .shop-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   section{padding:5rem 1.25rem}
 }
@@ -164,7 +157,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2rem 2rem}
     <a href="#" class="nav-logo"><img src="assets/logo.png" alt="ProStage"></a>
     <div class="nav-links">
       <a href="#leistungen">Leistungen</a>
-      <a href="#referenzen">Referenzen</a>
+      <a href="#equipment">Equipment</a>
       <a href="#ueber">Über uns</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#kontakt" class="nav-cta">Jetzt anfragen</a>
@@ -176,7 +169,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2rem 2rem}
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#leistungen" onclick="toggleMenu()">Leistungen</a>
-  <a href="#referenzen" onclick="toggleMenu()">Referenzen</a>
+  <a href="#equipment" onclick="toggleMenu()">Equipment</a>
   <a href="#ueber" onclick="toggleMenu()">Über uns</a>
   <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
   <a href="#kontakt" class="btn btn-primary" onclick="toggleMenu()">Jetzt anfragen</a>
@@ -249,77 +242,163 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2rem 2rem}
   </div>
 </section>
 
-<!-- STATS -->
-<section class="stats" id="stats">
+<!-- EQUIPMENT SHOP -->
+<section id="equipment" style="background:var(--bg2)">
   <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item reveal">
-        <h3><span data-count="500">0</span>+</h3>
-        <p>Realisierte Events</p>
-      </div>
-      <div class="stat-item reveal">
-        <h3><span data-count="15">0</span>+</h3>
-        <p>Jahre Erfahrung</p>
-      </div>
-      <div class="stat-item reveal">
-        <h3><span data-count="98">0</span>%</h3>
-        <p>Zufriedene Kunden</p>
-      </div>
-      <div class="stat-item reveal">
-        <h3>24/<span data-count="7">0</span></h3>
-        <p>Erreichbarkeit & Support</p>
-      </div>
+    <div class="reveal">
+      <div class="section-label">— Equipment mieten</div>
+      <h2 class="section-title">Mietequipment</h2>
+      <p class="section-sub">Professionelle Veranstaltungstechnik flexibel mieten — tageweise, zum Festpreis, sofort verfügbar.</p>
     </div>
-  </div>
-</section>
-
-<!-- REFERENZEN -->
-<section id="referenzen">
-  <div class="container">
-    <div class="reveal" style="text-align:center;margin-bottom:1rem">
-      <div class="section-label">— Unsere Arbeit</div>
-      <h2 class="section-title">Ausgewählte Projekte</h2>
-      <p class="section-sub" style="margin:0 auto">Ein Auszug aus Events, die wir technisch betreut und realisiert haben.</p>
+    <div class="shop-tabs reveal">
+      <button class="shop-tab active" onclick="filterShop('all')">Alle</button>
+      <button class="shop-tab" onclick="filterShop('ton')">Tontechnik</button>
+      <button class="shop-tab" onclick="filterShop('licht')">Lichttechnik</button>
+      <button class="shop-tab" onclick="filterShop('buehne')">Bühnentechnik</button>
+      <button class="shop-tab" onclick="filterShop('video')">LED &amp; Video</button>
     </div>
-    <div class="showcase-grid">
-      <div class="showcase-card reveal">
-        <div class="pattern"></div>
-        <div class="showcase-icon">♪</div>
-        <div class="overlay"></div>
-        <div class="info"><div class="tag">Festival</div><h3>Open-Air Festival 2025</h3><p>Hauptbühne · 15.000 Besucher</p></div>
+    <div class="shop-grid" id="shopGrid">
+      <!-- Tontechnik -->
+      <div class="product-card reveal" data-cat="ton">
+        <img class="product-img" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80" alt="Line Array Set" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Tontechnik</div>
+          <h3>Line Array Set</h3>
+          <div class="product-price">ab 299€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
       </div>
-      <div class="showcase-card reveal">
-        <div class="pattern"></div>
-        <div class="showcase-icon">◆</div>
-        <div class="overlay"></div>
-        <div class="info"><div class="tag">Kongress</div><h3>Digital Summit München</h3><p>Hybrid-Event · 3 Bühnen</p></div>
+      <div class="product-card reveal" data-cat="ton">
+        <img class="product-img" src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400&q=80" alt="Subwoofer-System" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Tontechnik</div>
+          <h3>Subwoofer-System</h3>
+          <div class="product-price">ab 149€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
       </div>
-      <div class="showcase-card reveal">
-        <div class="pattern"></div>
-        <div class="showcase-icon">★</div>
-        <div class="overlay"></div>
-        <div class="info"><div class="tag">Gala</div><h3>Awards Night Frankfurt</h3><p>Premium Gala · 800 Gäste</p></div>
+      <div class="product-card reveal" data-cat="ton">
+        <img class="product-img" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=400&q=80" alt="Mischpult Digital" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Tontechnik</div>
+          <h3>Mischpult Digital</h3>
+          <div class="product-price">ab 89€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <div class="product-card reveal" data-cat="ton">
+        <img class="product-img" src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&q=80" alt="Mikrofon-Set" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Tontechnik</div>
+          <h3>Mikrofon-Set</h3>
+          <div class="product-price">ab 49€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <!-- Lichttechnik -->
+      <div class="product-card reveal" data-cat="licht">
+        <img class="product-img" src="https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=400&q=80" alt="Moving Head Set" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Lichttechnik</div>
+          <h3>Moving Head Set 4x</h3>
+          <div class="product-price">ab 199€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <div class="product-card reveal" data-cat="licht">
+        <img class="product-img" src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80" alt="LED Par Can Set" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Lichttechnik</div>
+          <h3>LED Par Can Set</h3>
+          <div class="product-price">ab 79€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <div class="product-card reveal" data-cat="licht">
+        <img class="product-img" src="https://images.unsplash.com/photo-1508854710579-5cecc3a9ff17?w=400&q=80" alt="Followspot" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Lichttechnik</div>
+          <h3>Followspot</h3>
+          <div class="product-price">ab 129€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <div class="product-card reveal" data-cat="licht">
+        <img class="product-img" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="Strobe-Set" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Lichttechnik</div>
+          <h3>Strobe-Set</h3>
+          <div class="product-price">ab 59€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <!-- Bühnentechnik -->
+      <div class="product-card reveal" data-cat="buehne">
+        <img class="product-img" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&q=80" alt="Bühnenpodest-Set" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Bühnentechnik</div>
+          <h3>Bühnenpodest-Set 4×4m</h3>
+          <div class="product-price">ab 349€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <div class="product-card reveal" data-cat="buehne">
+        <img class="product-img" src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=400&q=80" alt="Traversensystem" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Bühnentechnik</div>
+          <h3>Traversensystem</h3>
+          <div class="product-price">ab 199€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <div class="product-card reveal" data-cat="buehne">
+        <img class="product-img" src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400&q=80" alt="Backdrop-System" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">Bühnentechnik</div>
+          <h3>Backdrop-System</h3>
+          <div class="product-price">ab 149€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <!-- LED & Video -->
+      <div class="product-card reveal" data-cat="video">
+        <img class="product-img" src="https://images.unsplash.com/photo-1574375927938-d5a98e8d7e28?w=400&q=80" alt="LED Wall" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">LED &amp; Video</div>
+          <h3>LED Wall 4m²</h3>
+          <div class="product-price">ab 599€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
+      </div>
+      <div class="product-card reveal" data-cat="video">
+        <img class="product-img" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=80" alt="Beamer" loading="lazy">
+        <div class="product-body">
+          <div class="product-cat">LED &amp; Video</div>
+          <h3>Beamer 10.000 Lumen</h3>
+          <div class="product-price">ab 249€ <small>/Tag</small></div>
+          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ÜBER UNS -->
-<section id="ueber" style="background:var(--bg2)">
+<section id="ueber">
   <div class="container">
     <div class="about-grid">
       <div class="reveal">
         <div class="section-label">— Wer wir sind</div>
         <h2 class="section-title">Technik ist unsere Leidenschaft</h2>
         <p class="about-text" style="margin-top:1.5rem">
-          <span style="color:var(--gray)">ProStage steht für kompromisslose Qualität in der Veranstaltungstechnik. Unser Team aus erfahrenen Technikern, Lichtdesignern und Tontechnikern realisiert Events jeder Größenordnung — vom intimen Firmenevent bis zur großen Open-Air-Produktion.</span>
+          <span style="color:var(--gray)">ProStage steht für kompromisslose Qualität in der Veranstaltungstechnik. Unser Team aus engagierten Technikern, Lichtdesignern und Tontechnikern realisiert Events jeder Größenordnung — vom intimen Firmenevent bis zur großen Open-Air-Produktion.</span>
         </p>
         <p style="color:var(--gray);font-size:.95rem;line-height:1.8">Wir verbinden technische Expertise mit kreativem Anspruch und sorgen dafür, dass jedes Event ein Erlebnis wird, das im Gedächtnis bleibt.</p>
         <div class="about-features">
           <div class="about-feature"><div class="check">✓</div> Eigener Gerätepark auf neuestem Stand</div>
           <div class="about-feature"><div class="check">✓</div> Zertifizierte Fachkräfte für Veranstaltungstechnik</div>
           <div class="about-feature"><div class="check">✓</div> Deutschlandweiter Einsatz</div>
-          <div class="about-feature"><div class="check">✓</div> 24/7 Notfall-Hotline</div>
+          <div class="about-feature"><div class="check">✓</div> Flexibel und zuverlässig</div>
         </div>
       </div>
       <div class="about-visual reveal">
@@ -327,8 +406,8 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2rem 2rem}
         <div class="ring"></div>
         <div class="ring"></div>
         <div class="center-text">
-          <div class="big">15+</div>
-          <p>Jahre Erfahrung</p>
+          <div class="big">PS</div>
+          <p>Pro · Stage</p>
         </div>
       </div>
     </div>
@@ -372,12 +451,11 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2rem 2rem}
       <a href="#leistungen">Lichttechnik</a>
       <a href="#leistungen">Bühnenbau</a>
       <a href="#leistungen">LED-Walls</a>
-      <a href="#leistungen">Konferenztechnik</a>
+      <a href="#equipment">Equipment mieten</a>
     </div>
     <div class="footer-col">
       <h4>Unternehmen</h4>
       <a href="#ueber">Über uns</a>
-      <a href="#referenzen">Referenzen</a>
       <a href="#">Karriere</a>
       <a href="#">Impressum</a>
       <a href="#">Datenschutz</a>
@@ -403,6 +481,15 @@ window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scr
 
 // Mobile menu
 function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+
+// Shop filter
+function filterShop(cat){
+  document.querySelectorAll('.shop-tab').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';
+  });
+}
 
 // Particles
 (function(){
@@ -433,17 +520,6 @@ function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('op
 // Reveal on scroll
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-// Counter animation
-const counterObserver=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){
-  e.target.querySelectorAll('[data-count]').forEach(el=>{
-    const target=+el.dataset.count;let current=0;
-    const step=target/60;
-    const timer=setInterval(()=>{current+=step;if(current>=target){el.textContent=target;clearInterval(timer)}else el.textContent=Math.floor(current)},16);
-  });
-  counterObserver.unobserve(e.target);
-}})},{threshold:.3});
-counterObserver.observe(document.getElementById('stats'));
 </script>
 </body>
 </html>
