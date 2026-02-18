@@ -63,6 +63,36 @@ a{color:inherit;text-decoration:none}
 .btn-anfrage:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
 .no-results{grid-column:1/-1;text-align:center;padding:4rem 1rem;color:var(--gray);font-size:1rem;display:none}
 
+/* ADD BUTTON */
+.btn-add{display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;padding:.7rem;border-radius:8px;font-size:.85rem;font-weight:600;background:rgba(0,119,255,.12);border:1px solid rgba(0,119,255,.25);color:var(--blue-light);cursor:pointer;transition:all .3s;margin-top:.5rem}
+.btn-add:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.btn-add.added{background:rgba(0,200,100,.15);border-color:rgba(0,200,100,.4);color:#00c864}
+
+/* FLOATING BADGE */
+.floating-badge{position:fixed;bottom:2rem;right:2rem;z-index:900;background:var(--blue);color:#fff;border:none;padding:.9rem 1.5rem;border-radius:50px;font-size:.95rem;font-weight:700;cursor:pointer;box-shadow:0 4px 24px rgba(0,119,255,.4);transition:all .3s;display:none;align-items:center;gap:.5rem;font-family:var(--font)}
+.floating-badge:hover{background:var(--blue-light);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,119,255,.5)}
+.floating-badge .count{background:#fff;color:var(--blue);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid rgba(255,255,255,.1);border-radius:16px;width:90%;max-width:600px;max-height:85vh;overflow-y:auto;padding:2rem}
+.modal h2{font-family:var(--heading);font-size:1.4rem;font-weight:700;margin-bottom:1.5rem}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--gray);font-size:1.5rem;cursor:pointer}
+.modal-item{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.modal-item span{font-size:.9rem}
+.modal-item button{background:none;border:none;color:#ff4466;cursor:pointer;font-size:1.1rem;padding:.2rem .5rem}
+.modal-item button:hover{color:#ff6688}
+.modal-fields{margin-top:1.5rem;display:flex;flex-direction:column;gap:1rem}
+.modal-fields label{font-size:.8rem;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.05em}
+.modal-fields input,.modal-fields textarea{width:100%;padding:.7rem 1rem;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:var(--white);font-size:.9rem;font-family:var(--font);outline:none;transition:border-color .3s}
+.modal-fields input:focus,.modal-fields textarea:focus{border-color:rgba(0,119,255,.4)}
+.modal-fields textarea{resize:vertical;min-height:80px}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.modal-send{margin-top:1.5rem;width:100%;padding:.85rem;border-radius:8px;border:none;background:var(--blue);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;font-family:var(--font);transition:all .3s}
+.modal-send:hover{background:var(--blue-light);box-shadow:0 0 24px var(--blue-glow)}
+.modal-empty{text-align:center;color:var(--gray);padding:2rem 0;font-size:.9rem}
+
 /* FOOTER */
 footer{border-top:1px solid rgba(255,255,255,.06);padding:2.5rem 2rem 1.5rem;text-align:center;color:var(--gray);font-size:.8rem}
 footer a{color:var(--blue-light);transition:color .3s}
@@ -120,6 +150,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Hochleistungs-Line-Array für große Beschallungen mit perfekter Abdeckung.</p>
       <div class="card-price">ab 120€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20Line%20Array%20Element" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Line Array Element')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -131,6 +162,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Kraftvolle Tieftonwiedergabe für druckvolle Bässe bei jeder Veranstaltung.</p>
       <div class="card-price">ab 180€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20Subwoofer-System%20(2er%20Set)" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Subwoofer-System 2er Set')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -142,6 +174,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Professionelles Digitalpult mit 32+ Kanälen, Effekten und Remote-Steuerung.</p>
       <div class="card-price">ab 450€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20Digitales%20Mischpult" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Digitales Mischpult')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -153,6 +186,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Vier drahtlose Mikrofone mit stabilem Empfang für Bühne und Konferenz.</p>
       <div class="card-price">ab 180€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20Wireless%20Mikrofon-Set%20(4x)" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Wireless Mikrofon-Set 4x')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -165,6 +199,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Vier leistungsstarke Moving Heads mit Spot/Wash-Funktion und DMX-Steuerung.</p>
       <div class="card-price">ab 320€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20Moving%20Head%20Set%20(4x)" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Moving Head Set 4x')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -176,6 +211,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">12 RGBW LED-Scheinwerfer für farbige Ausleuchtung und Stimmungslicht.</p>
       <div class="card-price">ab 140€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20LED%20Par%20Set%20(12x)" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'LED Par Set 12x')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -187,6 +223,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Professioneller Verfolgungsscheinwerfer für gezielte Personen-Ausleuchtung.</p>
       <div class="card-price">ab 130€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20Followspot" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Followspot')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -198,6 +235,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Das Industrie-Standard Lichtpult für professionelle Shows und Produktionen.</p>
       <div class="card-price">ab 400€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20GrandMA3%20Light%20Pult" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'GrandMA3 Light Pult')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -210,6 +248,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Modulare Alu-Traversen für flexible Aufbauten und sichere Lastabtragung.</p>
       <div class="card-price">ab 200€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20Traversensystem" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Traversensystem')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -221,6 +260,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Stabiles Bühnensystem mit variablen Höhen — ideal für Konzerte und Events.</p>
       <div class="card-price">ab 350€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20B%C3%BChnenpodest-Set%204x4m" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Bühnenpodest-Set 4x4m')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -232,6 +272,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Elektrischer Kettenzug mit 1 Tonne Tragkraft für sicheres Rigging.</p>
       <div class="card-price">ab 80€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20Kettenzug%201t" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Kettenzug 1t')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -244,6 +285,7 @@ footer a:hover{color:var(--white)}
       <p class="desc">Hochauflösende LED-Module für beeindruckende Videowände in jeder Größe.</p>
       <div class="card-price">ab 250€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20LED%20Wall" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'LED Wall pro m²')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
@@ -255,15 +297,40 @@ footer a:hover{color:var(--white)}
       <p class="desc">Lichtstarker Projektor für Präsentationen, Mapping und große Projektionsflächen.</p>
       <div class="card-price">ab 250€ <small>/Tag</small></div>
       <a href="mailto:info@prostage.de?subject=Anfrage%3A%20Beamer%2010.000%20Lumen" class="btn-anfrage">✉ Anfragen</a>
+      <button class="btn-add" onclick="addToList(this,'Beamer 10000 Lumen')">＋ Zur Anfrage hinzufügen</button>
     </div>
   </div>
 
   <div class="no-results" id="no-results">Keine Produkte gefunden.</div>
 </div>
 
+<!-- FLOATING BADGE -->
+<button class="floating-badge" id="floatingBadge" onclick="openModal()">
+  📋 Anfrage <span class="count" id="badgeCount">0</span>
+</button>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <h2>Ihre Anfrage</h2>
+    <div id="modalList"></div>
+    <div class="modal-fields" id="modalFields">
+      <div class="modal-row">
+        <div><label>Von (Datum)</label><input type="date" id="dateFrom"></div>
+        <div><label>Bis (Datum)</label><input type="date" id="dateTo"></div>
+      </div>
+      <div><label>Name *</label><input type="text" id="contactName" placeholder="Ihr Name"></div>
+      <div><label>E-Mail *</label><input type="email" id="contactEmail" placeholder="ihre@email.de"></div>
+      <div><label>Telefon (optional)</label><input type="tel" id="contactPhone" placeholder="+49 ..."></div>
+      <div><label>Nachricht</label><textarea id="contactMsg" placeholder="Weitere Informationen zu Ihrem Event..."></textarea></div>
+      <button class="modal-send" onclick="sendRequest()">✉ Anfrage per E-Mail senden</button>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 ProStage Veranstaltungstechnik · <a href="mailto:info@prostage.de">info@prostage.de</a> · <a href="index.html">Zurück zur Startseite</a></p>
+  <p>© 2025 ProStage Veranstaltungstechnik · <a href="mailto:info@prostage.de">info@prostage.de</a> · <a href="index.html">Startseite</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
 </footer>
 
 <script>
@@ -292,6 +359,86 @@ tabs.forEach(t=>t.addEventListener('click',()=>{
   filter();
 }));
 search.addEventListener('input',filter);
+
+// === REQUEST BUILDER ===
+let requestList=[];
+const badge=document.getElementById('floatingBadge');
+const badgeCount=document.getElementById('badgeCount');
+
+function updateBadge(){
+  badge.style.display=requestList.length?'flex':'none';
+  badgeCount.textContent=requestList.length;
+}
+
+function addToList(btn,name){
+  if(requestList.includes(name)){
+    requestList=requestList.filter(n=>n!==name);
+    btn.textContent='＋ Zur Anfrage hinzufügen';
+    btn.classList.remove('added');
+  }else{
+    requestList.push(name);
+    btn.textContent='✓ Hinzugefügt';
+    btn.classList.add('added');
+  }
+  updateBadge();
+}
+
+function openModal(){
+  document.getElementById('modalOverlay').classList.add('open');
+  renderModalList();
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function renderModalList(){
+  const list=document.getElementById('modalList');
+  const fields=document.getElementById('modalFields');
+  if(!requestList.length){
+    list.innerHTML='<div class="modal-empty">Noch keine Produkte ausgewählt.<br>Klicken Sie „＋" auf den Produktkarten.</div>';
+    fields.style.display='none';
+    return;
+  }
+  fields.style.display='flex';
+  list.innerHTML=requestList.map((n,i)=>`<div class="modal-item"><span>${n}</span><button onclick="removeItem(${i})">✕</button></div>`).join('');
+}
+
+function removeItem(i){
+  const name=requestList[i];
+  requestList.splice(i,1);
+  // Reset button state
+  document.querySelectorAll('.btn-add').forEach(btn=>{
+    if(btn.getAttribute('onclick').includes(name)){
+      btn.textContent='＋ Zur Anfrage hinzufügen';
+      btn.classList.remove('added');
+    }
+  });
+  updateBadge();
+  renderModalList();
+  if(!requestList.length)closeModal();
+}
+
+function sendRequest(){
+  const name=document.getElementById('contactName').value.trim();
+  const email=document.getElementById('contactEmail').value.trim();
+  const phone=document.getElementById('contactPhone').value.trim();
+  const msg=document.getElementById('contactMsg').value.trim();
+  const from=document.getElementById('dateFrom').value;
+  const to=document.getElementById('dateTo').value;
+  if(!name||!email){alert('Bitte Name und E-Mail ausfüllen.');return;}
+  if(!requestList.length){alert('Bitte mindestens ein Produkt auswählen.');return;}
+
+  let body='Anfrage von: '+name+'\n';
+  body+='E-Mail: '+email+'\n';
+  if(phone)body+='Telefon: '+phone+'\n';
+  if(from||to)body+='Zeitraum: '+(from||'?')+' bis '+(to||'?')+'\n';
+  body+='\nGewünschte Produkte:\n';
+  requestList.forEach(p=>body+='- '+p+'\n');
+  if(msg)body+='\nNachricht:\n'+msg+'\n';
+
+  const subject='Equipment-Anfrage: '+requestList.length+' Produkt'+(requestList.length>1?'e':'');
+  window.location.href='mailto:info@prostage.de?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
 </script>
 </body>
 </html>
