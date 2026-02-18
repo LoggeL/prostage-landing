@@ -157,7 +157,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2rem 2rem}
     <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="ProStage"></a>
     <div class="nav-links">
       <a href="#leistungen">Leistungen</a>
-      <a href="#equipment">Equipment</a>
+      <a href="shop.html">Equipment</a>
       <a href="shop.html">Shop</a>
       <a href="#ueber">Über uns</a>
       <a href="#kontakt">Kontakt</a>
@@ -170,7 +170,7 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2rem 2rem}
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#leistungen" onclick="toggleMenu()">Leistungen</a>
-  <a href="#equipment" onclick="toggleMenu()">Equipment</a>
+  <a href="shop.html" onclick="toggleMenu()">Equipment</a>
   <a href="#ueber" onclick="toggleMenu()">Über uns</a>
   <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
   <a href="#kontakt" class="btn btn-primary" onclick="toggleMenu()">Jetzt anfragen</a>
@@ -243,146 +243,18 @@ footer{border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2rem 2rem}
   </div>
 </section>
 
-<!-- EQUIPMENT SHOP -->
+<!-- EQUIPMENT CTA -->
 <section id="equipment" style="background:var(--bg2)">
-  <div class="container">
+  <div class="container" style="text-align:center;padding:4rem 0">
     <div class="reveal">
       <div class="section-label">— Equipment mieten</div>
-      <h2 class="section-title">Mietequipment</h2>
-      <p class="section-sub">Professionelle Veranstaltungstechnik flexibel mieten — tageweise, zum Festpreis, sofort verfügbar.</p>
-    </div>
-    <div class="shop-tabs reveal">
-      <button class="shop-tab active" onclick="filterShop('all')">Alle</button>
-      <button class="shop-tab" onclick="filterShop('ton')">Tontechnik</button>
-      <button class="shop-tab" onclick="filterShop('licht')">Lichttechnik</button>
-      <button class="shop-tab" onclick="filterShop('buehne')">Bühnentechnik</button>
-      <button class="shop-tab" onclick="filterShop('video')">LED &amp; Video</button>
-    </div>
-    <div class="shop-grid" id="shopGrid">
-      <!-- Tontechnik -->
-      <div class="product-card reveal" data-cat="ton">
-        <img class="product-img" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80" alt="Line Array Set" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Tontechnik</div>
-          <h3>Line Array Set</h3>
-          <div class="product-price">ab 299€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <div class="product-card reveal" data-cat="ton">
-        <img class="product-img" src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=400&q=80" alt="Subwoofer-System" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Tontechnik</div>
-          <h3>Subwoofer-System</h3>
-          <div class="product-price">ab 149€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <div class="product-card reveal" data-cat="ton">
-        <img class="product-img" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=400&q=80" alt="Mischpult Digital" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Tontechnik</div>
-          <h3>Mischpult Digital</h3>
-          <div class="product-price">ab 89€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <div class="product-card reveal" data-cat="ton">
-        <img class="product-img" src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&q=80" alt="Mikrofon-Set" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Tontechnik</div>
-          <h3>Mikrofon-Set</h3>
-          <div class="product-price">ab 49€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <!-- Lichttechnik -->
-      <div class="product-card reveal" data-cat="licht">
-        <img class="product-img" src="https://images.unsplash.com/photo-1504680177321-2e6a879aac86?w=400&q=80" alt="Moving Head Set" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Lichttechnik</div>
-          <h3>Moving Head Set 4x</h3>
-          <div class="product-price">ab 199€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <div class="product-card reveal" data-cat="licht">
-        <img class="product-img" src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80" alt="LED Par Can Set" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Lichttechnik</div>
-          <h3>LED Par Can Set</h3>
-          <div class="product-price">ab 79€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <div class="product-card reveal" data-cat="licht">
-        <img class="product-img" src="https://images.unsplash.com/photo-1508854710579-5cecc3a9ff17?w=400&q=80" alt="Followspot" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Lichttechnik</div>
-          <h3>Followspot</h3>
-          <div class="product-price">ab 129€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <div class="product-card reveal" data-cat="licht">
-        <img class="product-img" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="Strobe-Set" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Lichttechnik</div>
-          <h3>Strobe-Set</h3>
-          <div class="product-price">ab 59€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <!-- Bühnentechnik -->
-      <div class="product-card reveal" data-cat="buehne">
-        <img class="product-img" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&q=80" alt="Bühnenpodest-Set" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Bühnentechnik</div>
-          <h3>Bühnenpodest-Set 4×4m</h3>
-          <div class="product-price">ab 349€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <div class="product-card reveal" data-cat="buehne">
-        <img class="product-img" src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=400&q=80" alt="Traversensystem" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Bühnentechnik</div>
-          <h3>Traversensystem</h3>
-          <div class="product-price">ab 199€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <div class="product-card reveal" data-cat="buehne">
-        <img class="product-img" src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400&q=80" alt="Backdrop-System" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">Bühnentechnik</div>
-          <h3>Backdrop-System</h3>
-          <div class="product-price">ab 149€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <!-- LED & Video -->
-      <div class="product-card reveal" data-cat="video">
-        <img class="product-img" src="https://images.unsplash.com/photo-1574375927938-d5a98e8d7e28?w=400&q=80" alt="LED Wall" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">LED &amp; Video</div>
-          <h3>LED Wall 4m²</h3>
-          <div class="product-price">ab 599€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
-      <div class="product-card reveal" data-cat="video">
-        <img class="product-img" src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=400&q=80" alt="Beamer" loading="lazy">
-        <div class="product-body">
-          <div class="product-cat">LED &amp; Video</div>
-          <h3>Beamer 10.000 Lumen</h3>
-          <div class="product-price">ab 249€ <small>/Tag</small></div>
-          <button class="btn-shop" onclick="location.href='#kontakt'">⚡ Jetzt anfragen</button>
-        </div>
-      </div>
+      <h2 class="section-title">Professionelle Veranstaltungstechnik</h2>
+      <p class="section-sub" style="margin:0 auto 2.5rem;text-align:center;max-width:600px">Tontechnik, Lichttechnik, Bühnentechnik und mehr — flexibel mieten, tageweise zum Festpreis.</p>
+      <a href="shop.html" style="display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;border-radius:100px;font-size:1.05rem;font-weight:700;background:linear-gradient(135deg,var(--blue),#0066dd);color:#fff;text-decoration:none;border:none;cursor:pointer;transition:all .3s;box-shadow:0 0 30px rgba(0,119,255,.3)">Unser Equipment entdecken <span style="font-size:1.3rem">→</span></a>
     </div>
   </div>
 </section>
+
 
 <!-- ÜBER UNS -->
 <section id="ueber">
